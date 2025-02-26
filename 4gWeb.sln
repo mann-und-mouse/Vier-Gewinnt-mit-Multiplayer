@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4gWeb", "4gWeb.csproj", "{FAA4DC11-65CA-4CF9-A879-367A2BA23F2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VierGewinntMVC", "VierGewinntMVC\VierGewinntMVC.csproj", "{6DF0596A-1650-49C9-8B8D-45C1D7EE2190}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{FAA4DC11-65CA-4CF9-A879-367A2BA23F2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAA4DC11-65CA-4CF9-A879-367A2BA23F2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAA4DC11-65CA-4CF9-A879-367A2BA23F2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DF0596A-1650-49C9-8B8D-45C1D7EE2190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DF0596A-1650-49C9-8B8D-45C1D7EE2190}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DF0596A-1650-49C9-8B8D-45C1D7EE2190}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DF0596A-1650-49C9-8B8D-45C1D7EE2190}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

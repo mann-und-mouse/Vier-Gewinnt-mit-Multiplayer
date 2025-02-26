@@ -1,0 +1,47 @@
+﻿body {
+    user-select:none
+}
+#spielfeld{
+    width : 100vw;
+    height: 60vh;
+    position: relative;
+    display: flex;
+    padding: 0;
+
+}
+#spielcanvas{
+    width: 65%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+#slotgrid{
+    display:flex;
+    flex-wrap: wrap;
+    width: 65%;
+    height: 100%;
+    padding: 0px;
+}
+.slot{
+    margin:0px; 
+    width: 14%;
+    padding:0px;
+}
+.row{
+    display:flex;
+    justify-content:center;
+    margin: 0px;
+    height: 95px;
+    width: 100%;
+}
+#spielsteinsektion{
+    width: 35%;
+    height: 100%;
+    display:flex;
+    padding-left: 10px;
+}
+#roteSteine, #gelbeSteine {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}

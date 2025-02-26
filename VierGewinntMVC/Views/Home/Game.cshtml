@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Game";
+}
+@section Scripts {
+	<script src="~/js/main.js" type="module" ></script>
+	<link href="~/css/main.css" rel="stylesheet" />
+}
+  <div id="spielfeld" class="container">
+       <canvas id="spielcanvas"></canvas> 
+        <div id="einwurf"></div>
+        <div id="slotgrid"  class="container"></div>
+        <div id="spielsteinsektion" class="container">
+            <div id="roteSteine" draggable="false" class="col-md-6"></div>
+            <div id="gelbeSteine" draggable="false" class="col-md-6"></div>
+        </div>
+    </div>
+        <h1 id="announceActive">@ViewData["Waiting"]</h1>

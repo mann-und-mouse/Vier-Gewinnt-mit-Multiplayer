@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Classes\Spieler.js" />
     <Content Include="Index2.html" />
     <Content Include="Index.html" />
     <Content Include="JavaScript.js" />
