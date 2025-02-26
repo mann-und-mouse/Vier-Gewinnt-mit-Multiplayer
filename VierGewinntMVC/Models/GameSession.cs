@@ -17,9 +17,9 @@ namespace VierGewinntMVC.Models
         {
             PopulateArray();
         }
-        public void ResetState()
+        public void ResetState(Spieler remainingPlayer)
         {
-            Spieler1 = null;
+            Spieler1 = remainingPlayer;
             Spieler2 = null;
             AktiverSpieler = null;
             MoeglicherGewinner = null;

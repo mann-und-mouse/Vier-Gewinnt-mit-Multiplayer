@@ -13,7 +13,6 @@ namespace VierGewinntMVC
             builder.Services.AddControllersWithViews();
             builder.Services.AddSignalR().AddAzureSignalR(builder.Configuration.GetConnectionString("SignalR"));
             builder.Services.AddSingleton<GameSession>();
-            builder.Services.AddSingleton<HomeController>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

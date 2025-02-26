@@ -25,34 +25,36 @@ namespace VierGewinntMVC.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> AddPlayer(string username)
-        {
-            string message = "Warte auf Spieler 2";
-            if (_gameSession.Spieler1 == null)
-            {
-                _gameSession.Spieler1 = new Spieler()
-                {
-                    Name = username,
-                    Farbe = "red",
-                    Token = 1
-                };
-                _gameSession.AktiverSpieler = _gameSession.Spieler1;
-                ViewData["Waiting"] = message;
-            }
-            else if (_gameSession.Spieler2 == null)
-            {
-                _gameSession.Spieler2 = new Spieler()
-                {
-                    Name = username,
-                    Farbe = "yellow",
-                    Token = 2
-                };
-            }
-            return View("Game");
-        }
+		public IActionResult AddPlayer(string? username)
+		{
+			if(username == null)
+				return RedirectToAction("Index");
+			string message = "Warte auf Spieler 2";
+			if (_gameSession.Spieler1 == null)
+			{
+				_gameSession.Spieler1 = new Spieler()
+				{
+					Name = username,
+					Farbe = "red",
+					Token = 1,
+				};
+				_gameSession.AktiverSpieler = _gameSession.Spieler1;
+				ViewData["Waiting"] = message;
+			}
+			else if (_gameSession.Spieler2 == null)
+			{
+				_gameSession.Spieler2 = new Spieler()
+				{
+					Name = username,
+					Farbe = "yellow",
+					Token = 2
+				};
+			}
+			return View("Game");
+		}
 
-       
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+
+		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

@@ -73,7 +73,11 @@ connection.on("RemoveElement",(id) => {
     let element = document.getElementById(id);
     element.remove();
 })
-connection.on("Disconnect", () => alert("Player Disconnected"));
+connection.on("Disconnect", (message) =>
+{
+    alert("Player Disconnected");
+    announceActive.textContent = message;
+});
 
 //Eventfunktionen
 function handleDragStart(event)

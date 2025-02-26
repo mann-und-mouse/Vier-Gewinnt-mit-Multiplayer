@@ -11,33 +11,34 @@ namespace VierGewinntMVC.Models
     public class GameHub : Hub
     {
         private readonly GameSession _gameSession;
-        private readonly HomeController _homeController;
         
-        public GameHub(GameSession gameSession, HomeController controller)
+        public GameHub(GameSession gameSession)
         {
             _gameSession = gameSession;
-            _homeController = controller;
 
         }
 
         public async override Task OnConnectedAsync()
         {
            if(_gameSession.Spieler2 == null )
+            {
+                _gameSession.Spieler1.UserId = Context.ConnectionId;
                 await Clients.Caller.SendAsync("ReceiveUsername",_gameSession.Spieler1);
+            }
            else
             {
-
+                _gameSession.Spieler2.UserId = Context.ConnectionId;
                 await Clients.Caller.SendAsync("ReceiveUsername",_gameSession.Spieler2);
                 await Clients.Others.SendAsync("StartGame", _gameSession.GameArray, _gameSession.AktiverSpieler);
                 await Clients.Caller.SendAsync("StartGame", _gameSession.GameArray, _gameSession.AktiverSpieler);
-
             }
         }
         public async override Task OnDisconnectedAsync(Exception? ex)
         {
-            _gameSession.ResetState();
-            await Clients.All.SendAsync("Disconnect");
-
+            var id = Context.ConnectionId;
+            var remainingPlayer = _gameSession.Spieler1.UserId == id ? _gameSession.Spieler2 : _gameSession.Spieler1;
+            _gameSession.ResetState(remainingPlayer);
+            await Clients.All.SendAsync("Disconnect", "Warte auf Spieler 2");
         }
         public async Task SendMove(string xy, string farbe)
         {
